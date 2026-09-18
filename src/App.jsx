@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Services from './components/Services';
 import Project from './components/Project';
+import Education from './components/Education';
 import ContactSection from './components/Contact';
 import Footer from './components/Footer';
 import ComingSoon from './components/ComingSoon';
@@ -26,6 +27,7 @@ function App() {
           <About />
           <Services />
           <Project onCtaClick={() => setShowComingSoon(true)} />
+          <Education />
           <ContactSection />
           <Footer />
         </div>

@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import centerImage from '../assets/hero_assets/hero_center.png';
 
 const Hero = ({ onPreloadComplete }) => {
-  const [text, setText] = useState('LEESHARK');
+  const [text, setText] = useState('CHANDRU K');
   const containerRef = useRef(null);
   const textRef = useRef(null);
   const subtitleRef = useRef(null);
@@ -15,11 +15,15 @@ const Hero = ({ onPreloadComplete }) => {
     window.scrollTo(0, 0);
     document.body.style.overflow = 'hidden';
 
-    const target = "PORTFOLIO";
-    const start = "LEESHARK";
+    const firstStart = "CHANDRU K";
+    const firstTarget = "PORTFOLIO";
+    const finalTarget = "CHANDRU";
+
     let iterations = 0;
     let intervalId;
     let timeoutId;
+    let stayTimeoutId;
+    let secondInterval;
 
     const imageLoadPromise = new Promise((resolve) => {
       const img = new window.Image();
@@ -43,20 +47,21 @@ const Hero = ({ onPreloadComplete }) => {
 
       intervalId = setInterval(() => {
         setText(() => {
-          let newText = target.split("").map((letter, index) => {
+          let newText = firstTarget.split("").map((letter, index) => {
             if (index < Math.floor(iterations)) {
-              return target[index]; // Target letter
+              return firstTarget[index]; // Target letter
             }
-            if (index < start.length) {
-              return start[index]; // Original letter
+            if (index < firstStart.length) {
+              return firstStart[index]; // Original letter
             }
             return "";
           }).join("");
           return newText;
         });
 
-        if (iterations >= target.length) {
+        if (iterations >= firstTarget.length) {
           clearInterval(intervalId);
+          setText("PORTFOLIO");
 
           // GSAP Animation Sequence
           const tl = gsap.timeline({
@@ -66,10 +71,9 @@ const Hero = ({ onPreloadComplete }) => {
             }
           });
 
-          // 1. Move the central text container up from 50% to its resting place
-          const isMobile = window.innerWidth < 768;
+          // 1. Central text container shifted 35px upwards after reveal
           tl.to(containerRef.current, {
-            top: isMobile ? "20%" : "45%",
+            top: "calc(50% - 35px)",
             duration: 1.5,
             ease: "power3.inOut"
           }, "+=0.2"); // slight delay after scramble finishes
@@ -84,9 +88,32 @@ const Hero = ({ onPreloadComplete }) => {
           // 3. Slide the image upward to the center (no fading)
           tl.fromTo(imageRef.current,
             { y: "100vh" }, // start entirely offscreen at the bottom
-            { y: 0, duration: 1.5, ease: "power3.out" },
+            { y: "-60px", duration: 1.5, ease: "power3.out" },
             "-=1.2" // start sliding up around the same time
           );
+
+          // Wait 3 seconds after PORTFOLIO appears, then change to CHANDRU and remain constant
+          stayTimeoutId = setTimeout(() => {
+            if (!isMounted) return;
+            let secondIterations = 0;
+            secondInterval = setInterval(() => {
+              setText(() => {
+                let newText = firstTarget.split("").map((letter, index) => {
+                  if (index < Math.floor(secondIterations)) {
+                    return index < finalTarget.length ? finalTarget[index] : "";
+                  }
+                  return firstTarget[index];
+                }).join("");
+                return newText;
+              });
+
+              if (secondIterations >= firstTarget.length) {
+                clearInterval(secondInterval);
+                setText("CHANDRU");
+              }
+              secondIterations += 1 / 3;
+            }, 50);
+          }, 3000);
         }
         iterations += 1 / 3; // Controls the speed of the letter swap
       }, 50); // 50ms per step
@@ -96,20 +123,22 @@ const Hero = ({ onPreloadComplete }) => {
       isMounted = false;
       document.body.style.overflow = 'auto';
       clearTimeout(timeoutId);
+      clearTimeout(stayTimeoutId);
       clearInterval(intervalId);
+      if (secondInterval) clearInterval(secondInterval);
     };
   }, []);
 
   return (
     <section
-      className="relative min-h-screen flex items-end justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{ background: 'radial-gradient(circle, #222222 0%, #000000 80%)' }}
     >
       <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
 
       <div
         ref={containerRef}
-        className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none select-none flex flex-col items-start w-max"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none select-none flex flex-col items-start w-max"
       >
         <h1
           ref={textRef}
@@ -122,7 +151,7 @@ const Hero = ({ onPreloadComplete }) => {
           ref={subtitleRef}
           className="absolute -bottom-8 left-1/2 -translate-x-1/2 md:translate-x-0 md:-bottom-12 md:left-8 text-white text-base md:text-2xl lg:text-4xl drop-shadow-md z-10 opacity-0 w-max"
         >
-          <span className="font-bold">Software</span> <span className="font-light italic text-gray-300">Developer</span>
+          <span className="font-bold">Full Stack</span> <span className="font-light italic text-gray-300">Developer</span>
         </p>
 
         <div
@@ -143,7 +172,7 @@ const Hero = ({ onPreloadComplete }) => {
 
       <div
         ref={imageRef}
-        className="relative z-10 text-center text-white flex flex-col items-center w-full pointer-events-none translate-y-[100vh]"
+        className="absolute inset-0 z-10 text-center text-white flex flex-col items-center justify-center pointer-events-none translate-y-[100vh]"
       >
         <img
           src={centerImage}

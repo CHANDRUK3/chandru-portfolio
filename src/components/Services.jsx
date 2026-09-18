@@ -7,13 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 const servicesData = [
   {
     id: '01',
-    title: 'AI FULL STACK DEVELOPMENT',
-    description: 'I build scalable, high-performance web applications by combining modern frontend frameworks, robust backend systems, and AI-powered solutions. From planning and architecture to deployment, I create secure, responsive, and production-ready digital experiences.',
+    title: 'FULL STACK DEVELOPMENT',
+    description: 'I build scalable, high-performance web applications by combining modern frontend frameworks with robust Node.js/Express and Python/Flask backend systems. From intuitive UI design to database architecture and API integration, I deliver production-ready applications.',
     capabilities: [
-      'Develop responsive web applications with React.js & Next.js',
-      'Build secure REST APIs using FastAPI & Node.js',
-      'Design scalable backend architecture and databases',
-      'Integrate AI-powered features and automation',
+      'Develop responsive web applications with React.js & Tailwind CSS',
+      'Build secure REST APIs using Node.js, Express.js & Flask',
+      'Design efficient databases using MongoDB, MySQL & Oracle APEX',
+      'Integrate AI-powered features and automated workflows',
       'Deliver clean, maintainable, production-ready code'
     ],
     buttonText: 'VIEW PROJECTS'
@@ -21,65 +21,63 @@ const servicesData = [
   {
     id: '02',
     title: 'FRONTEND DEVELOPMENT',
-    description: 'I create fast, responsive, and visually engaging user interfaces that provide seamless user experiences across desktop, tablet, and mobile devices.',
+    description: 'I create fast, responsive, and visually engaging user interfaces that provide seamless user experiences across desktop and mobile devices.',
     capabilities: [
       'React.js',
-      'Next.js',
-      'TypeScript',
+      'JavaScript (ES6+)',
+      'HTML5 & CSS3',
       'Tailwind CSS',
-      'GSAP Animations',
-      'Responsive Design'
+      'Component Architecture',
+      'Responsive Web Design'
     ]
   },
   {
     id: '03',
-    title: 'BACKEND & API DEVELOPMENT',
-    description: 'I develop secure and scalable backend systems with well-structured APIs, efficient databases, and authentication mechanisms to power modern web applications.',
+    title: 'BACKEND & DATABASE DEVELOPMENT',
+    description: 'I develop secure backend services with RESTful APIs, business logic execution, and database integration to power scalable web platforms.',
     capabilities: [
-      'FastAPI',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'PostgreSQL',
-      'JWT Authentication'
+      'Node.js & Express.js',
+      'Python & Flask',
+      'MongoDB & Mongoose',
+      'MySQL & Relational Databases',
+      'Oracle APEX',
+      'RESTful API Design'
     ]
   },
   {
     id: '04',
-    title: 'AI & AUTOMATION',
-    description: 'I integrate artificial intelligence into applications to automate workflows, improve productivity, and create intelligent user experiences using modern AI technologies.',
+    title: 'AI & ML INTEGRATION',
+    description: 'I integrate artificial intelligence and machine learning models into web solutions for medical assistance, natural language processing, and image computation.',
     capabilities: [
-      'OpenAI Integration',
-      'LangChain',
-      'MCP',
-      'Prompt Engineering',
-      'AI Chatbots',
-      'Workflow Automation'
+      'Python & TensorFlow',
+      'Image Processing Algorithms',
+      'Mathematical Computation Models',
+      'AI-powered Chatbots',
+      'NLP & Symptom Detection'
     ]
   },
   {
     id: '05',
-    title: 'MOBILE DEVELOPMENT',
-    description: 'I build responsive cross-platform mobile applications with smooth performance, intuitive interfaces, and seamless integration with backend services.',
+    title: 'ACADEMIC & HACKATHON PROJECTS',
+    description: 'I build innovative solutions for real-world problems under tight timelines, including smart dashboards, campus management portals, and library systems.',
     capabilities: [
-      'React Native',
-      'API Integration',
-      'Responsive UI',
-      'State Management',
-      'Performance Optimization'
+      'Gen AI Consortium Internship Projects',
+      'Smart Student & Faculty Dashboards',
+      'Institute Management Systems',
+      'BYTS & SIH Hackathon Solutions',
+      'Team Leadership & Rapid Prototyping'
     ]
   },
   {
     id: '06',
-    title: 'DEVOPS & TOOLS',
-    description: 'I streamline development workflows with modern tools for version control, deployment, testing, and collaboration, ensuring reliable and efficient software delivery.',
+    title: 'LANGUAGES & TOOLING',
+    description: 'I leverage core computer science fundamentals and modern development tools for version control, debugging, and continuous improvement.',
     capabilities: [
+      'C , Java & C++',
+      'MATLAB',
       'Git & GitHub',
-      'Docker',
-      'Postman',
-      'CI/CD',
-      'VS Code',
-      'Cloud Deployment'
+      'VS Code & Postman',
+      'Figma'
     ]
   }
 ];
@@ -165,7 +163,7 @@ const Services = () => {
                   </div>
                   <div className="flex flex-col w-full min-w-0">
                     <div className="h-7 flex items-center md:h-10">
-                      <h3 className={`text-[11px] sm:text-sm md:text-xl lg:text-2xl font-black uppercase tracking-wide leading-none transition-colors duration-300 ease-in-out whitespace-nowrap overflow-hidden text-ellipsis ${
+                      <h3 className={`text-xs sm:text-sm md:text-xl lg:text-2xl font-black uppercase tracking-wide leading-snug sm:leading-none transition-colors duration-300 ease-in-out sm:whitespace-nowrap sm:overflow-hidden sm:text-ellipsis ${
                         isHighlighted ? 'text-black' : 'text-white'
                       }`}>
                         {service.title}

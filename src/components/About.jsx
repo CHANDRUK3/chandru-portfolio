@@ -5,25 +5,26 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const frontendSkills = ["React.js", "Next.js", "React Native", "TypeScript", "JavaScript", "Tailwind CSS", "Bootstrap", "Material UI", "HTML5"];
-const backendSkills = ["Python", "FastAPI", "Node.js", "Express.js", "REST APIs", "Database", "MongoDB", "PostgreSQL"];
-const aiSkills = ["ChatGPT", "Claude", "Cursor AI", "GitHub Copilot", "Google Gemini", "LangChain", "MCP", "Prompt Engineering", "Agentic AI"];
-const toolsSkills = ["Git", "GitHub", "Docker", "Postman", "VS Code", "CI/CD"];
+const frontendSkills = ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "REST APIs"];
+const backendSkills = ["Node.js", "Express.js", "Python", "Flask", "REST APIs", "MongoDB", "MySQL", "Oracle APEX"];
+const aiSkills = ["AI Integration", "Machine Learning", "Image Processing", "TensorFlow", "Math Computation", "Prompt Engineering"];
+const toolsSkills = ["Java", "C++", "MATLAB", "Git", "GitHub", "VS Code", "Postman"];
 
 const aboutWords = [
   { text: "Hey," }, { text: "I'm" },
-  { text: "Leeshark.", className: "font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" },
-  { text: "An" }, { text: "enthusiastic" }, { text: "AI" }, { text: "full-stack" }, { text: "developer" }, { text: "who" }, { text: "loves" }, { text: "to" }, { text: "build" }, { text: "state-of-the-art" }, { text: "web" }, { text: "and" }, { text: "mobile" }, { text: "applications." },
-  { text: "I" }, { text: "love" }, { text: "turning" }, { text: "concepts" }, { text: "into" }, { text: "scalable" }, { text: "products" }, { text: "using" }, { text: "tech" }, { text: "stack" }, { text: "like" },
-  { text: "React,", className: "text-white font-medium" },
-  { text: "FastAPI,", className: "text-white font-medium" },
+  { text: "Chandru K.", className: "font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" },
+  { text: "A" }, { text: "Computer" }, { text: "Science" }, { text: "and" }, { text: "Engineering" }, { text: "student" }, { text: "at" }, { text: "Kongu" }, { text: "Engineering" }, { text: "College" }, { text: "(2023–2027)" }, { text: "focused" }, { text: "on" }, { text: "Full" }, { text: "Stack" }, { text: "Development" }, { text: "and" }, { text: "AI" }, { text: "integration." },
+  { text: "I" }, { text: "love" }, { text: "building" }, { text: "clean," }, { text: "scalable" }, { text: "applications" }, { text: "and" }, { text: "thoughtful" }, { text: "user" }, { text: "experiences" }, { text: "using" }, { text: "technologies" }, { text: "like" },
+  { text: "React.js,", className: "text-white font-medium" },
   { text: "Node.js,", className: "text-white font-medium" },
-  { text: "and" }, { text: "artificial" }, { text: "intelligence" }, { text: "technologies." },
-  { text: "I" }, { text: "always" }, { text: "strive" }, { text: "to" }, { text: "keep" }, { text: "my" }, { text: "code" }, { text: "clean" }, { text: "and" }, { text: "design" }, { text: "great" }, { text: "user" }, { text: "experience" }, { text: "along" }, { text: "with" }, { text: "learning" }, { text: "new" }, { text: "technologies" }, { text: "like" },
-  { text: "LLMs,", className: "text-white font-medium" },
-  { text: "Langchain,", className: "text-white font-medium" },
+  { text: "Express.js,", className: "text-white font-medium" },
+  { text: "Python,", className: "text-white font-medium" },
+  { text: "Flask,", className: "text-white font-medium" },
   { text: "and" },
-  { text: "MCP.", className: "text-white font-medium" }
+  { text: "MongoDB.", className: "text-white font-medium" },
+  { text: "I" }, { text: "have" }, { text: "hands-on" }, { text: "experience" }, { text: "from" }, { text: "my" },
+  { text: "Gen AI Consortium Internship", className: "text-white font-medium" },
+  { text: "and" }, { text: "hackathons" }, { text: "like" }, { text: "BYTS" }, { text: "and" }, { text: "SIH." }
 ];
 
 const About = () => {
@@ -89,11 +90,11 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
 
           {/* Left Column - Image */}
-          <div className="flex justify-center lg:justify-start pl-0 lg:pl-20">
+          <div className="flex justify-center lg:justify-start pl-0 lg:pl-10 mt-2 md:mt-4 lg:mt-8">
             <img
               src={aboutImage}
               alt="About"
-              className="w-48 md:w-56 lg:w-64 object-contain drop-shadow-2xl"
+              className="w-64 sm:w-72 md:w-80 lg:w-[28rem] xl:w-[32rem] max-w-full h-auto object-contain drop-shadow-2xl"
             />
           </div>
 
