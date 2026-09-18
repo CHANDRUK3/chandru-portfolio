@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chandruk3.github.io/chandru-portfolio/sitemap.xml
